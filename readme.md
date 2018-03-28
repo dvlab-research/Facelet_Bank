@@ -1,4 +1,4 @@
-# Facelet-Bank for Fast Face Manipulation
+# Facelet-Bank for Fast Portrait Manipulation
 
 ![framework](images/framework.png)
 
@@ -20,8 +20,6 @@ Clone this project to your machine.
 git clone https://github.com/yingcong/Facelet_Bank.git
 cd Facelet_Bank
 ```
-
-or simply download the code from [OneDrive](https://1drv.ms/f/s!AqgNqUqbqGEHyiBnasaPmEtXyAa8).
 
 Run 
 
@@ -71,7 +69,7 @@ or
 python test_facelet_net.py test_video --help
 ```
 
-**Note:**  Although this framework is robust to an extent, testing on extreme cases could cause the degradation of performance. For example, an extremely high strength may cause artifact. Also, testing on an extremely large image may not work as well as testing on a proper size (from $448 \times 448$ to $600 \times 800$ ).
+**Note:**  Although this framework is robust to an extent, testing on extreme cases could cause the degradation of performance. For example, an extremely high strength may cause artifact. Also, testing on an extremely large image may not work as well as testing on a proper size (from 448 x 448 to 600 x 800).
 
 ## More effects
 
@@ -107,9 +105,9 @@ This extracts the *facehair* effect from *images/celeba* folder, and save the ex
 python demo2_facelet.py --help
 ```
 
-**Note:** In our implementation, we use the *aligned* version of celebA dataset for training, and reshape the image to $448 \times 448$. It is desirable that the height and width of training image are divisible to $112$ to avoid padding. 
+**Note:** In our implementation, we use the *aligned* version of [celebA](http://mmlab.ie.cuhk.edu.hk/projects/CelebA.html) dataset for training, and reshape the image to 448 x 448. It is desirable that the height and width of training image are divisible to 112 to avoid padding. 
 
-From our experience, $2000$~$3000$ samples should be enough for training a facelet model.
+From our experience, 2000~3000 samples should be enough for training a facelet model.
 
 ### Training Facelet model
 
@@ -127,7 +125,7 @@ python train_facelet_net.py --help
 
 ## Reference
 
-[Ying-Cong Chen](http://www.cse.cuhk.edu.hk/~ycchen), Huaijia Lin, Ruiyu Li, [Xin Tao](http://www.xtao.website), Michelle Shu, Yangang Ye, [Xiaoyong Shen](http://xiaoyongshen.me), [Jiaya Jia](http://www.cse.cuhk.edu.hk/leojia), "Facelet-Bank for Fast Portrait Manipulation" ,* Computer Vision and Pattern Recognition (CVPR), 2018 [pdf](http://appsrv.cse.cuhk.edu.hk/~ycchen/pdfFiles/Facelet.pdf) 
+[Ying-Cong Chen](http://www.cse.cuhk.edu.hk/~ycchen), Huaijia Lin, Ruiyu Li, [Xin Tao](http://www.xtao.website), Michelle Shu, Yangang Ye, [Xiaoyong Shen](http://xiaoyongshen.me), [Jiaya Jia](http://www.cse.cuhk.edu.hk/leojia), "Facelet-Bank for Fast Portrait Manipulation" ,* Computer Vision and Pattern Recognition (CVPR), 2018 [pdf](https://arxiv.org/abs/1803.05576) 
 
 ```bibtex
 @inproceedings{Chen2018Facelet,
