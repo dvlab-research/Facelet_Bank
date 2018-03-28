@@ -125,12 +125,12 @@ python train_facelet_net.py --help
 
 ## Reference
 
-[Ying-Cong Chen](http://www.cse.cuhk.edu.hk/~ycchen), Huaijia Lin, Ruiyu Li, [Xin Tao](http://www.xtao.website), Michelle Shu, Yangang Ye, [Xiaoyong Shen](http://xiaoyongshen.me), [Jiaya Jia](http://www.cse.cuhk.edu.hk/leojia), "Facelet-Bank for Fast Portrait Manipulation" ,* Computer Vision and Pattern Recognition (CVPR), 2018 [pdf](https://arxiv.org/abs/1803.05576) 
+[Ying-Cong Chen](http://www.cse.cuhk.edu.hk/~ycchen), Huaijia Lin, Michelle Shu,  Ruiyu Li, [Xin Tao](http://www.xtao.website), Yangang Ye, [Xiaoyong Shen](http://xiaoyongshen.me), [Jiaya Jia](http://www.cse.cuhk.edu.hk/leojia), "Facelet-Bank for Fast Portrait Manipulation" ,* Computer Vision and Pattern Recognition (CVPR), 2018 [pdf](https://arxiv.org/abs/1803.05576) 
 
 ```bibtex
 @inproceedings{Chen2018Facelet,
   title={Facelet-Bank for Fast Portrait Manipulation},
-  author={Chen, Ying-Cong and Lin, Huaijia and Li, Ruiyu and Tao, Xin and Shu, Michelle and Ye, Yangang and Shen, Xiaoyong and Jia, Jiaya},
+  author={Chen, Ying-Cong and Lin, Huaijia and Shu, Michelle and Li, Ruiyu and Tao, Xin and Ye, Yangang and Shen, Xiaoyong and Jia, Jiaya},
   booktitle={CVPR},
   year={2018}
 }
