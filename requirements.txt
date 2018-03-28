@@ -1,0 +1,5 @@
+numpy>=1.11.1
+scipy>=0.18.1
+tqdm>=4.19.8
+imageio>=2.3.0
+Pillow>=5.0.0
