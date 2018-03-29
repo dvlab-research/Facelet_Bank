@@ -125,7 +125,11 @@ python train_facelet_net.py --help
 
 ### Testing your own model
 
-The trained facelet model is stored in the **checkpoint** folder. To test the 
+The trained facelet model is stored in the **checkpoint** folder. To test the trained model, please include the "--local_model" augment, i.e., 
+
+```bash
+python test_facelet_net.py test_image --input_path examples/input.png --effect facehair --strength 5 --local_model
+```
 
 ## Reference
 
