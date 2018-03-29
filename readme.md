@@ -6,7 +6,7 @@
 
 - Python 2.7 or Python 3.6
 - NVIDIA GPU or CPU (only for testing)
-- Linux (for training and testing) or MacOS (only for testing)
+- Linux or MacOS
 
 ## Getting Started
 
@@ -31,7 +31,7 @@ to install other packages.
 
 ### How to use
 
-We support testing on images and video. 
+We support testing on images and videos. 
 
 To test an image:
 
@@ -39,7 +39,7 @@ To test an image:
 python test_facelet_net.py test_image --input_path examples/input.png --effect facehair --strength 5
 ```
 
-Note that if "--input_path" is a folder, then it will test all images in this folder. 
+If "--input_path" is a folder, all images in this folder will be tested.
 
 To test a video:
 
@@ -47,9 +47,7 @@ To test a video:
 python test_facelet_net.py test_video --input_path examples/input.mp4 --effect facehair --strength 5
 ```
 
-The code will download required models automatically for the first time. If you cannot access the network, please use download the **facelet_bank** folder from [dropbox](https://www.dropbox.com/sh/zlx22zgunfl0ueh/AACwoywXOFqSzMnasFGFwjkDa?dl=0) or and put them in the root directory.
-
-They are pretrained VGG encoder and VGG decoder respectively.
+Note that all required models will be downloaded automatically for the first time. Alternatively, you can also manually download the **facelet_bank** folder from [dropbox](https://www.dropbox.com/sh/zlx22zgunfl0ueh/AACwoywXOFqSzMnasFGFwjkDa?dl=0) or [Baidu Netdisk](https://pan.baidu.com/s/1ec7hVQSnhqbpNg9f93jxzw) and put them in the root directory. 
 
 If you do not have a GPU, please include "-cpu" argument to your command. For speed issue, you can optionally use a smaller image by specifying the "--size " option. 
 
@@ -69,7 +67,7 @@ or
 python test_facelet_net.py test_video --help
 ```
 
-**Note:**  Although this framework is robust to an extent, testing on extreme cases could cause the degradation of performance. For example, an extremely high strength may cause artifact. Also, testing on an extremely large image may not work as well as testing on a proper size (from 448 x 448 to 600 x 800).
+**Note:**  Although this framework is robust to an extent, testing on extreme cases could cause the degradation of quality. For example, an extremely high strength may cause artifact. Testing on an extremely large image may not work as well as testing on a proper size (from 448 x 448 to 600 x 800).
 
 ## More effects
 
@@ -79,7 +77,7 @@ The current project supports
 - older
 - younger
 
-More effects will be available in the future. Please watch this project for more information. Once a new effect is released, the **global_vars.py** file will be updated accordingly. This file contains the link  of the facelet models.
+More effects will be available in the future. Once a new effect is released, the **global_vars.py** file will be updated accordingly. We also provide an instruction of training your own effect in the following.
 
 ## Results
 
@@ -91,31 +89,33 @@ Training our network requires two steps, i.e.,  generating the attribute vector 
 
 ### Generating attribute vector
 
-We utilize the [Deep Feature Interpolation](https://github.com/paulu/deepfeatinterp) project to generate attribute vector to supervise our network. Please see <https://github.com/paulu/deepfeatinterp> for more details. 
+We utilize the [Deep Feature Interpolation](https://github.com/paulu/deepfeatinterp) project to generate attribute vectors as pseudo labels to supervise our facelet network. Please see <https://github.com/paulu/deepfeatinterp> for more details. 
 
-After downloading all relevant data and installing all required packages, copy **DFI/demo2_facelet.py**  to the root directory of the DFI project. Then run 
+After setting up the DFI project, copy **DFI/demo2_facelet.py**  to its root directory. Then cd to the DFI project folder and run 
 
 ```bash
 python demo2_facelet.py --effect facehair --input_path images/celeba --npz_path attribute_vector
 ```
 
-This extracts the *facehair* effect from *images/celeba* folder, and save the extracted images to *attribute_vector* folder. For more details, please run
+This extracts the *facehair* effect from *images/celeba* folder, and save the extracted attribute vectors to *attribute_vector* folder. For more details, please run
 
 ```
 python demo2_facelet.py --help
 ```
 
-**Note:** In our implementation, we use the *aligned* version of [celebA](http://mmlab.ie.cuhk.edu.hk/projects/CelebA.html) dataset for training, and reshape the image to 448 x 448. It is desirable that the height and width of training image are divisible to 112 to avoid padding. 
+**Note:** In our implementation, we use the aligned version of [celebA](http://mmlab.ie.cuhk.edu.hk/projects/CelebA.html) dataset for training, and resize the images to 448 x 448. 
 
-From our experience, 2000~3000 samples should be enough for training a facelet model.
+From our experience, 2000~3000 samples should be enough to train a facelet model.
 
 ### Training Facelet model
 
-After generating enough attribute vectors, we can utilize them to train a facelet model. Please run 
+After generating enough attribute vectors, we can utilize them to train a facelet model. Please cd to the " Facelet_bank" folder and run 
 
 ```bash
 python train_facelet_net.py --effect facehair --input_path ../deepfeatinterp/images/celeba --npz_path ../deepfeatinterp/attribute_vector
 ```
+
+where "--input_path" is the training image folder (the one used for generating attribute vector), and "--npz_path" is the folder of the generated attribute vectors. 
 
 For more details, please run
 
@@ -138,4 +138,4 @@ python train_facelet_net.py --help
 
 ## Contact
 
-Please feel free to email me <yingcong.ian.chen@gmail.com> if you have any question or suggestion. 
+Please contact <yingcong.ian.chen@gmail.com> if you have any question or suggestion. 
