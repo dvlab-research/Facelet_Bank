@@ -45,7 +45,7 @@ def train():
             w = facelet.optimize_parameters(vgg_feat, gt)
             if global_step % 10 == 0:
                 facelet.print_current_errors(epoch=epoch, i=idx)
-            if global_step % args.snapshot == 0:
+            if global_step > 0 and global_step % args.snapshot == 0:
                 facelet.save(label=args.effect)
             global_step += 1
         facelet.save(label=args.effect)

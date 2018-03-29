@@ -109,7 +109,7 @@ From our experience, 2000~3000 samples should be enough to train a facelet model
 
 ### Training Facelet model
 
-After generating enough attribute vectors, we can utilize them to train a facelet model. Please cd to the " Facelet_bank" folder and run 
+After generating enough attribute vectors, we can utilize them to train a facelet model. Please cd to the **Facelet_bank** folder and run 
 
 ```bash
 python train_facelet_net.py --effect facehair --input_path ../deepfeatinterp/images/celeba --npz_path ../deepfeatinterp/attribute_vector
@@ -122,6 +122,10 @@ For more details, please run
 ```bash
 python train_facelet_net.py --help
 ```
+
+### Testing your own model
+
+The trained facelet model is stored in the **checkpoint** folder. To test the 
 
 ## Reference
 

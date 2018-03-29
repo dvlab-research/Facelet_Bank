@@ -13,7 +13,6 @@ class ArgumentParser(ArgumentParser):
                           help='the save path. it will automatically stored in checkpoints/SCRIPT_NAME/SAVEPATH')
         self.add_argument('-bs', '--batch_size', type=int, default=16, help='batch_size')
         self.add_argument('--epoch', type=int, default=30, help='the number of epoches')
-        self.add_argument('-ct', '--continue_train', action='store_true', help='whether continue training')
 
     def parse_args(self, args=None, namespace=None):
         args = super(ArgumentParser, self).parse_args(args=args, namespace=namespace)
