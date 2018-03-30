@@ -20,8 +20,7 @@ class CommandCall(object):
         import argparse as parser_all
         parser = parser_all.ArgumentParser(
             description='Pretends to be git',
-            usage='''git <command> [<args>]
-        ''')
+            usage='The usage of this script is similar to git, e.g., git [command] [--params]. Please see readme more details. ')
         parser.add_argument('command', help='Subcommand to run')
         # parse_args defaults to [1:] for args, but you need to
         # exclude the rest of the args too, or validation will fail
