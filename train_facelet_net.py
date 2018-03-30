@@ -1,3 +1,17 @@
+'''
+This script provides the training interface of the Facelet model. Generated attribute vectors are required for training.
+Please setup DFI project (https://github.com/paulu/deepfeatinterp), and use "DFI/demo2_facelet.py" to extract attribute vectors.
+More details can be found on readme.md.
+
+If you find this project useful for your research, please kindly cite our paper:
+
+@inproceedings{Chen2018Facelet,
+  title={Facelet-Bank for Fast Portrait Manipulation},
+  author={Chen, Ying-Cong and Lin, Huaijia and Shu, Michelle and Li, Ruiyu and Tao, Xin and Ye, Yangang and Shen, Xiaoyong and Jia, Jiaya},
+  booktitle={CVPR},
+  year={2018}
+}
+'''
 import os
 from data.trainDataset import Dataset
 from data import walk_data
@@ -26,8 +40,6 @@ args = parser.parse_args()
 def train():
     image_path = args.input_path
     gt_path = args.npz_path
-    # gt_path = '../face_edit/datasets/training/proj23/features/facefeature/facemodel_four/celeba'
-    # image_path = '../face_edit/datasets/training/proj23/houyang/facemodel_four/celeba'
     npz_list, image_list = walk_data.glob_image_from_npz(gt_path, image_path, '*_%s.npz' % args.effect)
     trainingSet = Dataset(image_list=image_list, npz_list=npz_list)
     dataloader = DataLoader(trainingSet, batch_size=args.batch_size, shuffle=True, num_workers=4)
@@ -42,7 +54,7 @@ def train():
         for idx, data in enumerate(tqdm(dataloader), 0):
             image, gt = data
             vgg_feat = vgg.forward(util.toVariable(image).cuda())
-            w = facelet.optimize_parameters(vgg_feat, gt)
+            _ = facelet.optimize_parameters(vgg_feat, gt)
             if global_step % 10 == 0:
                 facelet.print_current_errors(epoch=epoch, i=idx)
             if global_step > 0 and global_step % args.snapshot == 0:

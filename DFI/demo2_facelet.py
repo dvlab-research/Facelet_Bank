@@ -1,8 +1,14 @@
 '''
 This script aims to extract attribute vectors from images. It is modified by the demo2.py.
+
+NOTE: it works with the DFI project (https://github.com/paulu/deepfeatinterp) rather than this project.
+Please copy this script to the root folder of DFI project before runing it.
+
 Please use
 python demo2_facelet.py -h
-to see more details.
+to see the help of options.
+
+For more details, please see readme.md.
 '''
 from __future__ import division
 from __future__ import with_statement

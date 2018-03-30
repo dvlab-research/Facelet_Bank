@@ -1,3 +1,8 @@
+'''
+Note: The decoder is slightly different from the original paper. In this implementation, the decoder only learns the
+difference between the original image and the edited image. In practice it works better and easier to train.
+'''
+
 from torch import nn
 import torch
 from util import util

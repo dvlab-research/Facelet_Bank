@@ -1,3 +1,16 @@
+'''
+This script is the testing interface. Please see readme.md for details.
+
+If you find this project useful for your research, please kindly cite our paper:
+
+@inproceedings{Chen2018Facelet,
+  title={Facelet-Bank for Fast Portrait Manipulation},
+  author={Chen, Ying-Cong and Lin, Huaijia and Shu, Michelle and Li, Ruiyu and Tao, Xin and Ye, Yangang and Shen, Xiaoyong and Jia, Jiaya},
+  booktitle={CVPR},
+  year={2018}
+}
+'''
+
 from network.facelet_net import *
 from util import test_parse as argparse
 from data.testData import Dataset, VideoDataset, untransform
