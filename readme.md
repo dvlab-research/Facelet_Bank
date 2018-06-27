@@ -76,6 +76,8 @@ The current project supports
 - facehair
 - older
 - younger
+- feminization
+- masculinization
 
 More effects will be available in the future. Once a new effect is released, the **global_vars.py** file will be updated accordingly. We also provide an instruction of training your own effect in the following.
 
