@@ -12,7 +12,10 @@
 
 ### Installation
 
-Install pytorch from <http://pytorch.org>. The code is tested on 0.3.1 version. Other version should also work with some modification. 
+Install pytorch. The code is tested on 0.3.1 version. 
+```bash
+pip install http://download.pytorch.org/whl/cu90/torch-0.3.1-cp27-cp27mu-linux_x86_64.whl
+```
 
 Clone this project to your machine. 
 
